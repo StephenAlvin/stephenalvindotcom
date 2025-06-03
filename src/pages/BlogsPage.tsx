@@ -1,49 +1,47 @@
-import { useState, useEffect } from 'react';
+// import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Link } from 'react-router-dom';
-import { Search } from 'lucide-react';
-import { blogPosts, BlogPost } from '@/data/blogData';
+import { blogPosts } from '@/data/blogData';
 
 const BlogsPage = () => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [filteredPosts, setFilteredPosts] = useState<BlogPost[]>(blogPosts);
-  const [selectedTag, setSelectedTag] = useState<string | null>(null);
+  // const [searchTerm, setSearchTerm] = useState('');
+  // const [filteredPosts, setFilteredPosts] = useState<BlogPost[]>(blogPosts);
+  // const [selectedTag, setSelectedTag] = useState<string | null>(null);
 
   // Get unique tags
-  const allTags = Array.from(
-    new Set(blogPosts.flatMap((post) => post.tags))
-  ).sort();
+  // const allTags = Array.from(
+  //   new Set(blogPosts.flatMap((post) => post.tags))
+  // ).sort();
 
-  useEffect(() => {
-    let filtered = blogPosts;
+  // useEffect(() => {
+  //   let filtered = blogPosts;
     
-    // Filter by search term
-    if (searchTerm) {
-      const term = searchTerm.toLowerCase();
-      filtered = filtered.filter(
-        (post) =>
-          post.title.toLowerCase().includes(term) ||
-          post.excerpt.toLowerCase().includes(term) ||
-          post.tags.some((tag) => tag.toLowerCase().includes(term))
-      );
-    }
+  //   // Filter by search term
+  //   if (searchTerm) {
+  //     const term = searchTerm.toLowerCase();
+  //     filtered = filtered.filter(
+  //       (post) =>
+  //         post.title.toLowerCase().includes(term) ||
+  //         post.excerpt.toLowerCase().includes(term) ||
+  //         post.tags.some((tag) => tag.toLowerCase().includes(term))
+  //     );
+  //   }
     
-    // Filter by selected tag
-    if (selectedTag) {
-      filtered = filtered.filter((post) =>
-        post.tags.includes(selectedTag)
-      );
-    }
+  //   // Filter by selected tag
+  //   if (selectedTag) {
+  //     filtered = filtered.filter((post) =>
+  //       post.tags.includes(selectedTag)
+  //     );
+  //   }
     
-    setFilteredPosts(filtered);
-  }, [searchTerm, selectedTag]);
+  //   setFilteredPosts(filtered);
+  // }, [searchTerm, selectedTag]);
 
-  const handleTagClick = (tag: string) => {
-    setSelectedTag(selectedTag === tag ? null : tag);
-  };
+  // const handleTagClick = (tag: string) => {
+  //   setSelectedTag(selectedTag === tag ? null : tag);
+  // };
 
   return (
     <motion.div
@@ -88,8 +86,8 @@ const BlogsPage = () => {
         
         {/* Blog grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredPosts.length > 0 ? (
-            filteredPosts.map((post) => (
+          {blogPosts.length > 0 ? (
+            blogPosts.map((post) => (
               <motion.div
                 key={post.slug}
                 initial={{ opacity: 0, y: 20 }}
