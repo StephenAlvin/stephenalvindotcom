@@ -12,7 +12,7 @@ const experiences: ExperienceItem[] = [
   {
     title: "Freelance Software Consultancy",
     period: "2025 - Present",
-    description: "Building custom software solutions for startups"
+    description: "Building custom software solutions for startups while building my own SAAS products on the side"
   },
   {
     title: "Co-Founder, 🔥FireJet",

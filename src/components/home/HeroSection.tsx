@@ -7,32 +7,32 @@ const HeroSection = () => {
     <section className="pt-32 pb-16 md:pt-40 md:pb-32 relative">
       <div className="container mx-auto px-4">
         <div className="flex flex-col gap-6 md:flex-row items-center">
-          <div className="w-full md:w-1/2 mb-10 md:mb-0">
+          <div className="w-full md:w-1/2 mb-10 md:mb-0 order-2 md:order-1">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               className="max-w-xl"
             >
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold font-inter mb-4">
+              <h1 className="text-3xl md:text-4xl font-thin font-inter mb-4">
                 Hi, I'm Stephen
               </h1>
               <p className="text-lg mb-8 text-foreground/70">
                 I ran a B2C SAAS to 100k ARR. I'd love to chat with you.
               </p>
               <div className="flex flex-wrap gap-3 items-center">
-                <Button size="icon">
-                  <Mail className="w-4 h-4" />
+                <Button size="icon" className="rounded-full">
+                  <Mail className="w-5 h-5" />
                 </Button>
-                <Button size="icon">
-                  <Linkedin className="w-4 h-4" />
+                <Button size="icon" className="rounded-full">
+                  <Linkedin className="w-5 h-5" />
                 </Button>
-                <Button size="icon">
+                <Button size="icon" className="rounded-full">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 50 50"
-                    width="16px"
-                    height="16px"
+                    width="20px"
+                    height="20px"
                   >
                     <path
                       stroke="white"
@@ -41,10 +41,10 @@ const HeroSection = () => {
                     />
                   </svg>
                 </Button>
-                <Button size="icon">
+                <Button size="icon" className="rounded-full">
                   <svg
-                    width="16px"
-                    height="16px"
+                    width="20px"
+                    height="20px"
                     viewBox="0 0 24 24"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -61,7 +61,7 @@ const HeroSection = () => {
             </motion.div>
           </div>
 
-          <div className="w-full md:w-2/3">
+          <div className="w-full md:w-2/3 order-1 md:order-2">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}

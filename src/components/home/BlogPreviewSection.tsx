@@ -48,7 +48,7 @@ const BlogPreviewSection = () => {
     <section className="py-20">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold font-inter">Pinned</h2>
+          <h2 className="text-3xl md:text-4xl font-thin font-inter">Recent Posts</h2>
           <Link to="/blogs">
             <Button variant="ghost" className="text-primary">
               View all <ArrowRight className="ml-2 h-4 w-4" />
@@ -63,11 +63,11 @@ const BlogPreviewSection = () => {
           variants={containerVariants}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {previewPosts.map((post, index) => (
+          {previewPosts.map((post) => (
             <motion.div key={post.slug} variants={itemVariants}>
               <Link to={`/blogs/${post.slug}`}>
                 <Card className="h-full overflow-hidden border border-foreground/10 hover:border-foreground/20 transition-all duration-300 hover:shadow-md hover:shadow-primary/5 group">
-                  <div className="aspect-[16/9] overflow-hidden bg-muted">
+                  <div className="aspect-[18/9] overflow-hidden bg-muted">
                     <img 
                       src={post.coverImage} 
                       alt={post.title} 
@@ -76,12 +76,9 @@ const BlogPreviewSection = () => {
                   </div>
                   <CardContent className="p-6">
                     <div className="text-sm text-primary font-medium mb-2">{post.date}</div>
-                    <h3 className="text-xl font-bold mb-2 line-clamp-2 group-hover:text-primary transition-colors">{post.title}</h3>
-                    <p className="text-foreground/70 line-clamp-2">{post.excerpt}</p>
+                    <h3 className="text-lg font-bold mb-2 line-clamp-2 group-hover:text-primary transition-colors">{post.title}</h3>
+                    <p className="text-foreground/70 line-clamp-2 text-sm">{post.excerpt}</p>
                   </CardContent>
-                  <CardFooter className="p-6 pt-0 text-sm text-foreground/60">
-                    {post.readTime} min read
-                  </CardFooter>
                 </Card>
               </Link>
             </motion.div>

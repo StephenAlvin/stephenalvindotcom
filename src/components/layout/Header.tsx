@@ -77,7 +77,7 @@ const Header = () => {
 
           {/* Newsletter Subscribe */}
           <div className="hidden md:flex items-center space-x-2">
-            <Button type="submit" variant="outline" className="ml-2 font-light">
+            <Button type="submit" variant="outline" className="ml-2 font-light rounded-full">
               Join my newsletter
             </Button>
           </div>
