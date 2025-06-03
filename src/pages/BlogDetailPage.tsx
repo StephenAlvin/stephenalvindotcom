@@ -52,15 +52,15 @@ const BlogDetailPage = () => {
     return lines.map((line, index) => {
       // H1 headers
       if (line.startsWith('# ')) {
-        return <h1 key={index} className="text-3xl md:text-4xl font-bold font-serif my-6">{line.substring(2)}</h1>;
+        return <h1 key={index} className="text-3xl md:text-4xl font-bold font-inter my-6">{line.substring(2)}</h1>;
       }
       // H2 headers
       if (line.startsWith('## ')) {
-        return <h2 key={index} className="text-2xl md:text-3xl font-bold font-serif my-5">{line.substring(3)}</h2>;
+        return <h2 key={index} className="text-2xl md:text-3xl font-bold font-inter my-5">{line.substring(3)}</h2>;
       }
       // H3 headers
       if (line.startsWith('### ')) {
-        return <h3 key={index} className="text-xl md:text-2xl font-bold font-serif my-4">{line.substring(4)}</h3>;
+        return <h3 key={index} className="text-xl md:text-2xl font-bold font-inter my-4">{line.substring(4)}</h3>;
       }
       // Lists
       if (line.startsWith('- ')) {
@@ -98,7 +98,7 @@ const BlogDetailPage = () => {
             ))}
           </div>
           
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold font-serif mb-6">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold font-inter mb-6">
             {post.title}
           </h1>
           
@@ -129,7 +129,7 @@ const BlogDetailPage = () => {
           
           {relatedPosts.length > 0 && (
             <div>
-              <h3 className="text-2xl font-bold font-serif mb-6">Related Articles</h3>
+              <h3 className="text-2xl font-bold font-inter mb-6">Related Articles</h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {relatedPosts.map((relatedPost) => (
                   <Link key={relatedPost.slug} to={`/blogs/${relatedPost.slug}`}>

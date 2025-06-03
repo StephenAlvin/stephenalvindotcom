@@ -54,7 +54,7 @@ const BlogsPage = () => {
       className="pt-32 pb-20"
     >
       <div className="container mx-auto px-4">
-        <h1 className="text-4xl md:text-5xl font-bold font-serif mb-4">Blog</h1>
+        <h1 className="text-4xl md:text-5xl font-bold font-inter mb-4">Blog</h1>
         <p className="text-xl text-foreground/70 mb-8 max-w-2xl">
           Thoughts, lessons, and insights from my journey in design, development, and entrepreneurship.
         </p>

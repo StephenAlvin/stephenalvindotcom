@@ -74,7 +74,7 @@ const ExperienceSection = () => {
   return (
     <section className="py-20 bg-background-light">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold font-serif mb-12 text-center">Work Experience</h2>
+        <h2 className="text-3xl md:text-4xl font-bold font-inter mb-12 text-center">Work Experience</h2>
         
         <motion.div
           ref={ref}

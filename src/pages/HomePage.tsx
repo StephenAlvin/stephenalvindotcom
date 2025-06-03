@@ -41,14 +41,14 @@ const HomePage = () => {
     >
       <HeroSection />
       
-      <motion.div
+      {/* <motion.div
         ref={ref}
         initial="hidden"
         animate={controls}
         variants={fadeInVariants}
       >
         <StorySection />
-      </motion.div>
+      </motion.div> */}
       
       <ExperienceSection />
       <BlogPreviewSection />

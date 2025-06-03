@@ -43,7 +43,7 @@ const NewsletterSection = () => {
                 <MailIcon className="h-6 w-6 text-primary" />
               </div>
             </div>
-            <h2 className="text-2xl md:text-3xl font-bold font-serif text-center mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold font-inter text-center mb-4">
               Subscribe to my Newsletter
             </h2>
             <p className="text-foreground/70 text-center mb-8 max-w-lg mx-auto">

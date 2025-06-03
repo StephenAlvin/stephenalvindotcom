@@ -16,7 +16,7 @@ const StorySection = () => {
           transition={{ duration: 0.6 }}
           className="max-w-3xl mx-auto text-center"
         >
-          <h2 className="text-3xl md:text-4xl font-bold font-serif mb-6">My Story</h2>
+          <h2 className="text-3xl md:text-4xl font-bold font-inter mb-6">My Story</h2>
           <p className="text-lg text-foreground/80 leading-relaxed mb-8">
             I've always been fascinated by the intersection of design and technology. After graduating with a degree in Computer Science, I worked as a frontend developer for several years, constantly frustrated by the gap between designers' visions and developers' implementations.
           </p>

@@ -48,7 +48,7 @@ const BlogPreviewSection = () => {
     <section className="py-20">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold font-serif">Popular Articles</h2>
+          <h2 className="text-3xl md:text-4xl font-bold font-inter">Popular Articles</h2>
           <Link to="/blogs">
             <Button variant="ghost" className="text-primary">
               View all <ArrowRight className="ml-2 h-4 w-4" />

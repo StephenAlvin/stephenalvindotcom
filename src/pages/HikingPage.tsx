@@ -58,7 +58,7 @@ const HikingPage = () => {
     >
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold font-serif mb-4">Hiking Adventures</h1>
+          <h1 className="text-4xl md:text-5xl font-bold font-inter mb-4">Hiking Adventures</h1>
           <p className="text-xl text-foreground/70">
             When I'm not coding or building products, I'm exploring the outdoors and capturing the beauty of nature.
             Here are some of my favorite hikes and moments from the trail.
