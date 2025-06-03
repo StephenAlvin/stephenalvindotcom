@@ -54,13 +54,13 @@ const BlogsPage = () => {
       className="pt-32 pb-20"
     >
       <div className="container mx-auto px-4">
-        <h1 className="text-4xl md:text-5xl font-bold font-inter mb-4">Blog</h1>
-        <p className="text-xl text-foreground/70 mb-8 max-w-2xl">
+        <h1 className="text-3xl md:text-4xl font-thin font-inter mb-4">Personal Reflections</h1>
+        <p className="text-xl font-light text-foreground/70 mb-8 w-full">
           Thoughts, lessons, and insights from my journey in design, development, and entrepreneurship.
         </p>
         
         {/* Search and filters */}
-        <div className="mb-12">
+        {/* <div className="mb-12">
           <div className="relative mb-6">
             <Search className="absolute left-3 top-3 h-5 w-5 text-foreground/50" />
             <Input
@@ -84,7 +84,7 @@ const BlogsPage = () => {
               </Badge>
             ))}
           </div>
-        </div>
+        </div> */}
         
         {/* Blog grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

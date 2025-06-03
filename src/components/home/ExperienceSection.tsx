@@ -10,14 +10,14 @@ interface ExperienceItem {
 
 const experiences: ExperienceItem[] = [
   {
-    title: "Freelance Software Consultancy",
-    period: "2025 - Present",
-    description: "Building custom software solutions for startups while building my own SAAS products on the side"
-  },
-  {
     title: "Co-Founder, 🔥FireJet",
     period: "2022 - 2025",
     description: "80k downloads with peak 100k ARR. B2C SAAS helping devs save time in converting Figma designs to code. "
+  },
+  {
+    title: "Freelance Software Consultancy",
+    period: "2021 - Present",
+    description: "Building custom software solutions for startups"
   },
   {
     title: "Singapore University of Technology and Design",

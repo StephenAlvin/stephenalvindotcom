@@ -2,11 +2,20 @@ import { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Calendar, Clock } from 'lucide-react';
+import { marked } from 'marked';
+import DOMPurify from 'dompurify';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { blogPosts, BlogPost } from '@/data/blogData';
 import { cn } from '@/lib/utils';
+import '@/styles/markdown.css';
+
+// Configure marked options
+marked.setOptions({
+  breaks: true,
+  gfm: true,
+});
 
 const BlogDetailPage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -47,31 +56,16 @@ const BlogDetailPage = () => {
   const formatContent = (content: string) => {
     if (!content) return <p>Content coming soon...</p>;
     
-    const lines = content.split('\n');
+    // Parse markdown and sanitize HTML
+    const htmlContent = marked.parse(content) as string;
+    const sanitizedHtml = DOMPurify.sanitize(htmlContent);
     
-    return lines.map((line, index) => {
-      // H1 headers
-      if (line.startsWith('# ')) {
-        return <h1 key={index} className="text-3xl md:text-4xl font-bold font-inter my-6">{line.substring(2)}</h1>;
-      }
-      // H2 headers
-      if (line.startsWith('## ')) {
-        return <h2 key={index} className="text-2xl md:text-3xl font-bold font-inter my-5">{line.substring(3)}</h2>;
-      }
-      // H3 headers
-      if (line.startsWith('### ')) {
-        return <h3 key={index} className="text-xl md:text-2xl font-bold font-inter my-4">{line.substring(4)}</h3>;
-      }
-      // Lists
-      if (line.startsWith('- ')) {
-        return <li key={index} className="ml-6 my-1">{line.substring(2)}</li>;
-      }
-      // Regular paragraphs
-      if (line.trim() !== '') {
-        return <p key={index} className="my-4 text-foreground/90 leading-relaxed">{line}</p>;
-      }
-      return null;
-    });
+    return (
+      <div 
+        className="markdown-content"
+        dangerouslySetInnerHTML={{ __html: sanitizedHtml }}
+      />
+    );
   };
 
   return (
@@ -113,7 +107,7 @@ const BlogDetailPage = () => {
             </div>
           </div>
           
-          <div className="aspect-[16/9] overflow-hidden rounded-lg bg-muted mb-8">
+          <div className="aspect-[16/9] overflow-hidden rounded-lg bg-muted mb-12">
             <img 
               src={post.coverImage} 
               alt={post.title} 
@@ -121,9 +115,7 @@ const BlogDetailPage = () => {
             />
           </div>
           
-          <div className="prose prose-lg max-w-none">
-            {formatContent(post.content)}
-          </div>
+          {formatContent(post.content)}
           
           <Separator className="my-12" />
           
