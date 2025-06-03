@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Flame, Linkedin, Mail } from "lucide-react";
+import { Linkedin, Mail } from "lucide-react";
 
 const HeroSection = () => {
   return (
-    <section className="pt-32 pb-20 md:pt-40 md:pb-32 relative">
+    <section className="pt-32 pb-16 md:pt-40 md:pb-32 relative">
       <div className="container mx-auto px-4">
         <div className="flex flex-col gap-6 md:flex-row items-center">
           <div className="w-full md:w-1/2 mb-10 md:mb-0">
@@ -79,7 +79,7 @@ const HeroSection = () => {
               <img
                 src="/src/assets/hero-image.avif"
                 alt="Stephen Alvin"
-                className="object-cover w-full h-full"
+                className="object-cover w-full h-full scale-150 md:scale-100"
               />
             </motion.div>
           </div>
