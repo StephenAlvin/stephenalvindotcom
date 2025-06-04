@@ -44,7 +44,7 @@ If it helps even one more person stay focused, that's a win.
     tags: ["Side Project", "Productivity", "Hacker News"]
   },
   {
-    id: 1,
+    id: 2,
     slug: "three-years-ten-pivots",
     title: "3 years, 10 pivots, and a final blow from Figma",
     excerpt: "My FireJet story",
@@ -101,4 +101,68 @@ The product is still running and generating some revenue, which we'll maintain a
     `,
     tags: ["Startup", "Lessons Learned", "Self-reflection"]
   },
+  {
+    id: 3,
+    slug: "from-macritchie-to-bukit-timah",
+    title: "From MacRitchie to Bukit Timah: Finding peace in 163 meters",
+    excerpt: "How Singapore's trails taught me to slow down and breathe",
+    date: "April 2, 2024",
+    readTime: 6,
+    coverImage: "/from-macritchie-to-bukit-timah.webp",
+    content: `
+
+I never thought I'd become someone who wakes up at 6 AM on weekends to walk up a hill.
+
+Yet here I am, three years later, with muddy shoes permanently by my door and a growing collection of trail maps scattered across my desk. What started as a desperate attempt to get some exercise has quietly become the thing that keeps me grounded.
+
+## The accidental beginning
+
+It was early 2021, and I was spending way too much time hunched over my laptop working on FireJet. My back ached, my eyes were tired, and I felt like I hadn't taken a proper breath in months. A friend mentioned MacRitchie Reservoir as a nice place to walk, so I figured I'd give it a shot.
+
+That first trip was humbling. I took the boardwalk route—the easy one—and still felt winded after an hour. But something about being surrounded by green instead of screens felt... necessary. The quiet rustle of leaves, the occasional monkey sighting, the simple rhythm of putting one foot in front of the other.
+
+I went back the following weekend. Then the weekend after that.
+
+## Learning to see
+
+What I didn't expect was how much there was to discover. Singapore has this reputation for being all concrete and shopping malls, but spend enough time on the trails and you realize how wrong that assumption is.
+
+Each trail has its own personality. MacRitchie's TreeTop Walk feels like you're floating above the canopy. The Rail Corridor takes you through forgotten corners of Singapore's history. Bukit Timah—all 163 meters of it—might not be impressive by global standards, but those steel steps up Jungle Fall Path will humble you pretty quickly.
+
+I started keeping notes. Not in any organized way, just observations: which trails were less crowded on Sunday mornings, where I'd spotted the most wildlife, which routes challenged me without completely destroying my knees.
+
+## The unexpected community
+
+One thing led to another, and I found myself documenting these trails more systematically. It started as simple notes for myself, then grew into something I thought might help other people discover what I'd stumbled into.
+
+That's how HikeWithMe.sg came about. Not as a business plan or grand vision, but as a way to share the trails that had become such an important part of my routine. The response surprised me—turns out there are plenty of other people looking for an excuse to spend their weekends in the woods instead of the mall.
+
+The website gets modest traffic, maybe a few hundred visitors a week. But every so often, someone emails to say they tried a trail I'd written about, or that they'd never known about Chestnut Nature Park's mountain biking trails. Those messages remind me why I started documenting these walks in the first place.
+
+## What the trails taught me
+
+There's something about hiking that cuts through the noise. No notifications, no urgent emails, just the immediate reality of the next step. It's meditative in a way I never expected.
+
+During those intense FireJet months, the trails became my reset button. A weekend morning at Sungei Buloh would remind me there was a world beyond product-market fit and user retention. The physical challenge of climbing up to North View Hut helped clear the mental fog of endless pivots and strategy discussions.
+
+I learned to appreciate the small victories: making it up Bukit Timah's main slope without stopping, spotting a kingfisher at Bishan-Ang Mo Kio Park, or finally completing the full Coast-to-Coast trail. These achievements felt more tangible than many of the metrics I was tracking in my startup.
+
+## The rhythm of it all
+
+Three years in, hiking has become less about fitness and more about rhythm. There's something grounding about having a weekend routine that exists entirely outside the digital world. My body knows the feeling of Bukit Timah's steep slopes, my mind recognizes the particular quiet of early morning at Coney Island.
+
+It's made me more patient, I think. When you're used to measuring progress in steps up a hill, you start to understand that worthwhile things take time. You learn to appreciate the process, not just the summit.
+
+The irony isn't lost on me that my most successful "side project" these days might be a simple website about walking around Singapore. No complex features, no growth hacking, just useful information about trails that exist whether anyone reads about them or not.
+
+## Moving forward, one step at a time
+
+I'm still that person who wakes up early on weekends to walk up hills. The difference now is that I know why I do it, and I'm grateful for the accident that led me here.
+
+Singapore's trails won't solve your problems or change your life overnight. But they'll give you space to think, fresh air to breathe, and maybe—if you're paying attention—a reminder that some of the best discoveries happen when you're not trying so hard to find them.
+
+Next weekend, I'll probably wake up early and head out to explore a new section of the Rail Corridor. Not because I have to, but because I can't imagine starting the week any other way.
+    `,
+    tags: ["Outdoors", "Singapore", "Self-reflection", "Side Project"]
+  }
 ];
