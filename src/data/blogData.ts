@@ -16,7 +16,7 @@ export const blogPosts: BlogPost[] = [
     slug: "weekend-build-hacker-news-front-page",
     title: "My weekend project Hacker News front page",
     excerpt: "100+ upvotes and over 4k visitors in 12 hours",
-    date: "March 15, 2024",
+    date: "28 May 2025",
     readTime: 4,
     coverImage: "/weekend-build-hacker-news-front-page.jpeg",
     content: `
@@ -48,7 +48,7 @@ If it helps even one more person stay focused, that's a win.
     slug: "three-years-ten-pivots",
     title: "3 years, 10 pivots, and a final blow from Figma",
     excerpt: "My FireJet story",
-    date: "March 20, 2024",
+    date: "3 June, 2025",
     readTime: 7,
     coverImage: "/three-years-ten-pivots.png",
     content: `
@@ -106,7 +106,7 @@ The product is still running and generating some revenue, which we'll maintain a
     slug: "from-macritchie-to-bukit-timah",
     title: "From MacRitchie to Bukit Timah: Finding peace in 163 meters",
     excerpt: "How Singapore's trails taught me to slow down and breathe",
-    date: "April 2, 2024",
+    date: "20 May 2025",
     readTime: 6,
     coverImage: "/from-macritchie-to-bukit-timah.webp",
     content: `
