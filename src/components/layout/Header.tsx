@@ -31,15 +31,15 @@ const Header = () => {
       title: "Thanks for subscribing!",
       description: "You'll receive updates in your inbox.",
     });
-    
-    setEmail('');
+
+    setEmail("");
   };
 
   const navLinks = [
     { path: "/", label: "Home" },
     { path: "/blogs", label: "Blogs" },
+    { path: "https://hikewithme.sg/", label: "Outdoor" },
     // { path: "/startup", label: "Startup" },
-    // { path: "/hiking", label: "Outdoor" },
   ];
 
   return (
@@ -61,24 +61,40 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={cn(
-                  "text-sm font-medium transition-colors hover:text-primary",
-                  location.pathname === link.path
-                    ? "text-primary"
-                    : "text-foreground/80"
-                )}
-              >
-                {link.label}
-              </Link>
+              link.path.startsWith('http') ? (
+                <a
+                  key={link.path}
+                  href={link.path}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-medium transition-colors hover:text-primary text-foreground/80"
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className={cn(
+                    "text-sm font-medium transition-colors hover:text-primary",
+                    location.pathname === link.path
+                      ? "text-primary"
+                      : "text-foreground/80"
+                  )}
+                >
+                  {link.label}
+                </Link>
+              )
             ))}
           </nav>
 
           {/* Newsletter Subscribe */}
           <div className="hidden md:flex items-center space-x-2">
-            <Button type="submit" variant="outline" className="ml-2 font-light rounded-full">
+            <Button
+              type="submit"
+              variant="outline"
+              className="ml-2 font-light rounded-full"
+            >
               Join my newsletter
             </Button>
           </div>
@@ -110,19 +126,32 @@ const Header = () => {
         >
           <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
             {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={cn(
-                  "text-base py-2 font-medium transition-colors hover:text-primary",
-                  location.pathname === link.path
-                    ? "text-primary"
-                    : "text-foreground/80"
-                )}
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {link.label}
-              </Link>
+              link.path.startsWith('http') ? (
+                <a
+                  key={link.path}
+                  href={link.path}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-base py-2 font-medium transition-colors hover:text-primary text-foreground/80"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className={cn(
+                    "text-base py-2 font-medium transition-colors hover:text-primary",
+                    location.pathname === link.path
+                      ? "text-primary"
+                      : "text-foreground/80"
+                  )}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              )
             ))}
             <form onSubmit={handleSubscribe} className="flex items-center pt-4">
               <Input

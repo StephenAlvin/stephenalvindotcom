@@ -47,7 +47,7 @@ const BlogPreviewSection = () => {
   return (
     <section className="py-20">
       <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center mb-12">
+        <div className="flex flex-col gap-4 items-center mb-12">
           <h2 className="text-3xl md:text-4xl font-thin font-inter">Recent Posts</h2>
           <Link to="/blogs">
             <Button variant="ghost" className="text-primary">

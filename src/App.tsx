@@ -8,7 +8,7 @@ import LoadingSpinner from '@/components/ui/LoadingSpinner';
 const HomePage = lazy(() => import('@/pages/HomePage'));
 const BlogsPage = lazy(() => import('@/pages/BlogsPage'));
 const BlogDetailPage = lazy(() => import('@/pages/BlogDetailPage'));
-const HikingPage = lazy(() => import('@/pages/HikingPage'));
+// const HikingPage = lazy(() => import('@/pages/HikingPage'));
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/blogs" element={<BlogsPage />} />
               <Route path="/blogs/:slug" element={<BlogDetailPage />} />
-              <Route path="/hiking" element={<HikingPage />} />
+              {/* <Route path="/hiking" element={<HikingPage />} /> */}
             </Routes>
           </Suspense>
         </Layout>
