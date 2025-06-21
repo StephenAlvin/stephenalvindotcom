@@ -46,7 +46,7 @@ const BlogPreviewSection = () => {
     <section className="py-20">
       <div className="container mx-auto px-4">
         <div className="flex flex-col gap-4 items-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-thin font-inter">Posts</h2>
+          <h2 className="text-3xl md:text-4xl font-thin font-inter">Stories</h2>
           {/* <Link to="/blogs">
             <Button variant="ghost" className="text-primary">
               View all <ArrowRight className="ml-2 h-4 w-4" />
