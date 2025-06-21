@@ -15,21 +15,42 @@ const NewsletterSection = () => {
     threshold: 0.1,
   });
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (!email) return;
     
-    toast({
-      title: "Thanks for subscribing!",
-      description: "You'll receive updates in your inbox.",
-    });
-    
-    setEmail('');
+    try {
+      const response = await fetch('https://discord.com/api/webhooks/1385930942454960259/gBlO20ciDen7k9bCaDnNIdgfuZr4WmjzncHy-9WrxhvyGKeb5aohYcHaAGlVFdGAf7xr', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          content: `${email}`,
+        }),
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Thanks for subscribing!",
+          description: "You'll receive updates in your inbox.",
+        });
+        setEmail('');
+      } else {
+        throw new Error('Failed to subscribe');
+      }
+    } catch (error) {
+      toast({
+        title: "Subscription failed",
+        description: "Please try again later.",
+        variant: "destructive",
+      });
+    }
   };
 
   return (
-    <section className="py-20" ref={ref}>
+    <section className="py-20" ref={ref} id="newsletter-section">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -44,10 +65,10 @@ const NewsletterSection = () => {
               </div>
             </div>
             <h2 className="text-2xl md:text-3xl font-bold font-inter text-center mb-4">
-              Subscribe to my Newsletter
+              Subscribe to my stories
             </h2>
             <p className="text-foreground/70 text-center mb-8 max-w-lg mx-auto">
-              Get notified about new articles, startup insights, and exclusive content delivered straight to your inbox.
+              No spam. Just me, my thoughts, and my journey.
             </p>
             <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
               <Input

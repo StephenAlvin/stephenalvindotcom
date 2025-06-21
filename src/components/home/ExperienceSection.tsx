@@ -12,7 +12,7 @@ const experiences: ExperienceItem[] = [
   {
     title: "Co-Founder, 🔥FireJet",
     period: "2022 - 2025",
-    description: "80k downloads with peak 100k ARR. B2C SAAS helping devs save time in converting Figma designs to code. "
+    description: "80k downloads. Peak 100k ARR. B2C SAAS helping devs save time converting Figma to code. "
   },
   {
     title: "Freelance Software Consultancy",
@@ -73,7 +73,7 @@ const ExperienceSection = () => {
   return (
     <section className="py-20 bg-background-light">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-thin font-inter mb-16 text-center">My Experience</h2>
+        <h2 className="text-3xl md:text-4xl font-thin font-inter mb-16 text-center">Experiences</h2>
         
         <motion.div
           ref={ref}

@@ -52,7 +52,7 @@ const BlogsPage = () => {
       className="pt-32 pb-20"
     >
       <div className="container mx-auto px-4">
-        <h1 className="text-3xl md:text-4xl font-thin font-inter mb-4">Personal Reflections</h1>
+        <h1 className="text-3xl md:text-4xl font-thin font-inter mb-4">My stories</h1>
         <p className="text-xl font-light text-foreground/70 mb-8 w-full">
           Thoughts, lessons, and insights from my journey in design, development, and entrepreneurship.
         </p>

@@ -21,13 +21,25 @@ const HeroSection = () => {
                 I ran a B2C SAAS to 100k ARR. I'd love to chat with you.
               </p>
               <div className="flex flex-wrap gap-3 items-center">
-                <Button size="icon" className="rounded-full">
+                <Button 
+                  size="icon" 
+                  className="rounded-full"
+                  onClick={() => window.open('mailto:stephenalvin0912@gmail.com', '_self')}
+                >
                   <Mail className="w-5 h-5" />
                 </Button>
-                <Button size="icon" className="rounded-full">
+                <Button 
+                  size="icon" 
+                  className="rounded-full"
+                  onClick={() => window.open('https://www.linkedin.com/in/stephen-alvin', '_blank')}
+                >
                   <Linkedin className="w-5 h-5" />
                 </Button>
-                <Button size="icon" className="rounded-full">
+                <Button 
+                  size="icon" 
+                  className="rounded-full"
+                  onClick={() => window.open('https://x.com/StephenAlvin97', '_blank')}
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 50 50"
@@ -41,7 +53,11 @@ const HeroSection = () => {
                     />
                   </svg>
                 </Button>
-                <Button size="icon" className="rounded-full">
+                <Button 
+                  size="icon" 
+                  className="rounded-full"
+                  onClick={() => window.open('https://t.me/st3vuhn', '_blank')}
+                >
                   <svg
                     width="20px"
                     height="20px"

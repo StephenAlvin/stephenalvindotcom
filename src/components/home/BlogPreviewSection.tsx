@@ -2,9 +2,7 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Card, CardContent, CardFooter } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
+import { Card, CardContent} from '@/components/ui/card';
 import { blogPosts } from '@/data/blogData';
 
 const BlogPreviewSection = () => {
@@ -47,13 +45,13 @@ const BlogPreviewSection = () => {
   return (
     <section className="py-20">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col gap-4 items-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-thin font-inter">Recent Posts</h2>
-          <Link to="/blogs">
+        <div className="flex flex-col gap-4 items-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-thin font-inter">Posts</h2>
+          {/* <Link to="/blogs">
             <Button variant="ghost" className="text-primary">
               View all <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
-          </Link>
+          </Link> */}
         </div>
         
         <motion.div
@@ -61,12 +59,13 @@ const BlogPreviewSection = () => {
           initial="hidden"
           animate={controls}
           variants={containerVariants}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="flex flex-col justify-center items-center gap-6"
+          // className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {previewPosts.map((post) => (
             <motion.div key={post.slug} variants={itemVariants}>
               <Link to={`/blogs/${post.slug}`}>
-                <Card className="h-full overflow-hidden border border-foreground/10 hover:border-foreground/20 transition-all duration-300 hover:shadow-md hover:shadow-primary/5 group">
+                <Card className="max-w-xl h-full overflow-hidden border border-foreground/10 hover:border-foreground/20 transition-all duration-300 hover:shadow-md hover:shadow-primary/5 group">
                   <div className="aspect-[18/9] overflow-hidden bg-muted">
                     <img 
                       src={post.coverImage} 

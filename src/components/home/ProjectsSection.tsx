@@ -1,91 +1,87 @@
 import { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import {
-  ExternalLink,
-  Github,
-  Timer,
-  BarChart,
-  Mountain,
-  Globe,
-  Smartphone,
-  Database,
-} from "lucide-react";
+import { ExternalLink } from "lucide-react";
 
 interface Project {
-  id: string;
   title: string;
   description: string;
-  technologies: string[];
   status: string;
   badgeColor?: string;
-  icon: React.ReactNode;
-  gradient: string;
-  githubUrl?: string;
   liveUrl?: string;
+  startYear: number;
+  endYear?: number; // Optional - if not provided, assumes "Present"
 }
 
 const projects: Project[] = [
   {
-    id: "1",
     title: "iamlockedin.com",
-    description: "Minamilist focus timer with white noise and focus analytics",
-    technologies: [
-      "TypeScript",
-      "React",
-      "Node.js",
-      "Supabase",
-      "TanStack Query",
-      "PostHog",
-    ],
-    status: "30 Daily Active Users",
-    badgeColor: "bg-green-500/10 text-green-600 border-green-500/20",
-    icon: <Timer className="w-6 h-6" />,
-    gradient: "from-purple-500/20 to-pink-500/20",
-    githubUrl: "#",
-  },
-
-  {
-    id: "2",
-    title: "hikewithme.sg",
-    description: "Personal hiking guide for hiddel trails in Singapore",
-    technologies: [
-      "TypeScript",
-      "React",
-      "Node.js",
-      "Zod",
-      "GitHub Actions",
-      "React Hook Form",
-    ],
+    description: "Focus-driven productivity tool",
     status: "Live",
     badgeColor: "bg-green-500/10 text-green-600 border-green-500/20",
-    icon: <Mountain className="w-6 h-6" />,
-    gradient: "from-orange-500/20 to-red-500/20",
+    liveUrl: "https://iamlockedin.com",
+    startYear: 2025,
   },
   {
-    id: "3",
+    title: "hikewithme.sg",
+    description: "Your guide to hidden trails in Singapore",
+    status: "Live",
+    badgeColor: "bg-green-500/10 text-green-600 border-green-500/20",
+    liveUrl: "https://hikewithme.sg",
+    startYear: 2025,
+  },
+  {
     title: "replyfirst.co",
-    description:
-      "AI generated replies for customer service professionals",
-    technologies: [
-      "TypeScript",
-      "React",
-      "OpenAI",
-      "Node.js",
-      "Zod",
-      "GitHub Actions",
-    ],
-    status: "Validating Idea",
-    badgeColor: "bg-orange-500/10 text-orange-600 border-orange-500/20",
-    icon: <BarChart className="w-6 h-6" />,
-    gradient: "from-blue-500/20 to-cyan-500/20",
-    githubUrl: "#",
-    liveUrl: "#",
+    description: "AI-powered customer service solution",
+    status: "Live",
+    badgeColor: "bg-green-500/10 text-green-600 border-green-500/20",
+    liveUrl: "https://replyfirst.co",
+    startYear: 2025,
+  },
+  {
+    title: "firejet.io",
+    description: "Convert Figma designs into code",
+    status: "Live",
+    badgeColor: "bg-green-500/10 text-green-600 border-green-500/20",
+    liveUrl: "https://firejet.io",
+    startYear: 2022,
+  },
+  {
+    title: "ezbackend.io",
+    description: "Simplified backend setup",
+    status: "Legacy",
+    badgeColor: "bg-amber-500/10 text-amber-600 border-amber-500/20",
+    liveUrl: "https://ezbackend.io",
+    startYear: 2022,
+    endYear: 2022,
+  },
+  {
+    title: "aurient.io",
+    description: "Data-driven mentorship management",
+    status: "Legacy",
+    badgeColor: "bg-amber-500/10 text-amber-600 border-amber-500/20",
+    liveUrl: "https://aurient.io",
+    startYear: 2019,
+    endYear: 2021,
+  },
+  {
+    title: "meetup-mouse.com",
+    description: "Find places to meet and eat",
+    status: "Legacy",
+    badgeColor: "bg-amber-500/10 text-amber-600 border-amber-500/20",
+    liveUrl: "https://www.instagram.com/meetupmouse/",
+    startYear: 2019,
+    endYear: 2021,
   },
 ];
+
+// Sort projects by end year (if exists), otherwise by start year, in descending order
+const sortedProjects = [...projects].sort((a, b) => {
+  const aYear = a.endYear || a.startYear;
+  const bYear = b.endYear || b.startYear;
+  return bYear - aYear;
+});
 
 const ProjectsSection = () => {
   const controls = useAnimation();
@@ -141,12 +137,18 @@ const ProjectsSection = () => {
     }
   };
 
+  const formatYearRange = (project: Project) => {
+    return project.endYear 
+      ? `${project.startYear} - ${project.endYear}`
+      : `${project.startYear} - Present`;
+  };
+
   return (
     <section className="py-20 bg-background-light">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-thin font-inter mb-4">
-            Current Projects
+            Projects
           </h2>
         </div>
 
@@ -155,92 +157,62 @@ const ProjectsSection = () => {
           initial="hidden"
           animate={controls}
           variants={containerVariants}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"
+          className="max-w-4xl mx-auto"
         >
-          {projects.map((project) => (
-            <motion.div key={project.id} variants={itemVariants}>
-              <Card
+          <div className="bg-background/50 backdrop-blur-sm rounded-lg border border-foreground/10 overflow-hidden shadow-sm">
+            {sortedProjects.map((project, index) => (
+              <motion.div 
+                key={project.title} 
+                variants={itemVariants}
+                className={`group p-6 hover:bg-background/70 transition-all duration-300 ${
+                  index !== sortedProjects.length - 1 ? 'border-b border-foreground/5' : ''
+                } ${project.liveUrl ? 'cursor-pointer' : ''}`}
                 onClick={() => {
-                  window.open(project.liveUrl, "_blank");
+                  if (project.liveUrl) {
+                    window.open(project.liveUrl, "_blank");
+                  }
                 }}
-                className={`h-full group cursor-pointer border border-foreground/10 hover:border-foreground/20 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 bg-gradient-to-br ${project.gradient} backdrop-blur-sm`}
               >
-                <CardContent className="p-6 h-full flex flex-col">
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="p-2 rounded-lg bg-background/50 backdrop-blur-sm">
-                      {project.icon}
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-start">
+                  {/* Project Title */}
+                  <div className="md:col-span-3">
+                    <div className="flex items-center gap-2">
+                      <h3 className="text-md font-semibold text-foreground group-hover:text-primary transition-colors">
+                        {project.title}
+                      </h3>
+                      {project.liveUrl && (
+                        <ExternalLink className="w-4 h-4 text-foreground/40 group-hover:text-primary transition-colors" />
+                      )}
                     </div>
+                  </div>
+                  
+                  {/* Years */}
+                  <div className="md:col-span-2">
+                    <p className="text-foreground/60 text-sm">
+                      {formatYearRange(project)}
+                    </p>
+                  </div>
+                  
+                  {/* Description */}
+                  <div className="md:col-span-4">
+                    <p className="text-foreground/70 text-sm leading-relaxed mb-3">
+                      {project.description}
+                    </p>
+                  </div>
+                  
+                  {/* Status */}
+                  <div className="md:col-span-3 flex justify-start md:justify-end">
                     <Badge
                       variant="outline"
-                      className={`text-xs ${getStatusColor(project)}`}
+                      className={`text-xs font-medium ${getStatusColor(project)}`}
                     >
                       {project.status}
                     </Badge>
                   </div>
-
-                  <div className="flex-1">
-                    <h3 className="text-lg font-bold mb-2 group-hover:text-primary transition-colors">
-                      {project.title}
-                    </h3>
-                    <p className="text-foreground/70 text-sm mb-4 line-clamp-3">
-                      {project.description}
-                    </p>
-                  </div>
-
-                  <div className="space-y-3">
-                    <div className="flex flex-wrap gap-1">
-                      {project.technologies.map((tech) => (
-                        <Badge
-                          key={tech}
-                          variant="secondary"
-                          className="text-xs bg-background/20 hover:bg-background/70 transition-colors"
-                        >
-                          {tech}
-                        </Badge>
-                      ))}
-                      {/* {project.technologies.length > 3 && (
-                        <Badge
-                          variant="secondary"
-                          className="text-xs bg-background/50"
-                        >
-                          +{project.technologies.length - 3}
-                        </Badge>
-                      )} */}
-                    </div>
-
-                    {/* <div className="flex gap-2">
-                      {project.githubUrl && (
-                        <Button
-                          size="sm"
-                          variant="ghost"
-                          className="h-8 px-2 hover:bg-background/50"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            window.open(project.githubUrl, "_blank");
-                          }}
-                        >
-                          <Github className="w-4 h-4" />
-                        </Button>
-                      )}
-                      {project.liveUrl && (
-                        <Button
-                          size="sm"
-                          variant="ghost"
-                          className="h-8 px-2 hover:bg-background/50"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            window.open(project.liveUrl, "_blank");
-                          }}
-                        >
-                          <ExternalLink className="w-4 h-4" />
-                        </Button>
-                      )}
-                    </div> */}
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
       </div>
     </section>

@@ -35,6 +35,16 @@ const Header = () => {
     setEmail("");
   };
 
+  const scrollToNewsletter = () => {
+    const element = document.getElementById('newsletter-section');
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
   const navLinks = [
     { path: "/", label: "Home" },
     { path: "/blogs", label: "Blogs" },
@@ -91,11 +101,11 @@ const Header = () => {
           {/* Newsletter Subscribe */}
           <div className="hidden md:flex items-center space-x-2">
             <Button
-              type="submit"
+              onClick={scrollToNewsletter}
               variant="outline"
               className="ml-2 font-light rounded-full"
             >
-              Join my newsletter
+              Follow my journey
             </Button>
           </div>
 
