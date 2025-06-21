@@ -3,7 +3,6 @@ import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { cn } from "@/lib/utils";
 
@@ -23,17 +22,6 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email) return;
-
-    toast({
-      title: "Thanks for subscribing!",
-      description: "You'll receive updates in your inbox.",
-    });
-
-    setEmail("");
-  };
 
   const scrollToNewsletter = () => {
     const element = document.getElementById("newsletter-section");
