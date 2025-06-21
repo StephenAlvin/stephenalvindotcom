@@ -36,11 +36,11 @@ const Header = () => {
   };
 
   const scrollToNewsletter = () => {
-    const element = document.getElementById('newsletter-section');
+    const element = document.getElementById("newsletter-section");
     if (element) {
-      element.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
       });
     }
   };
@@ -61,7 +61,7 @@ const Header = () => {
           : "bg-transparent"
       )}
     >
-      <div className="container mx-auto px-4 py-1">
+      <div className="container mx-auto px-4 py-1 w-full">
         <div className="flex items-center justify-between">
           {/* Logo/Name */}
           <Link to="/" className="font-inter text-xl md:text-2xl font-thin">
@@ -70,8 +70,8 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              link.path.startsWith('http') ? (
+            {navLinks.map((link) =>
+              link.path.startsWith("http") ? (
                 <a
                   key={link.path}
                   href={link.path}
@@ -88,14 +88,14 @@ const Header = () => {
                   className={cn(
                     "text-sm font-medium transition-colors hover:text-primary",
                     location.pathname === link.path
-                      ? "text-primary"
+                      ? "text-primary text-base"
                       : "text-foreground/80"
                   )}
                 >
                   {link.label}
                 </Link>
               )
-            ))}
+            )}
           </nav>
 
           {/* Newsletter Subscribe */}
@@ -128,21 +128,21 @@ const Header = () => {
       {/* Mobile Menu */}
       {mobileMenuOpen && (
         <motion.div
-          className="md:hidden bg-background/95 backdrop-blur-sm"
+          className="md:hidden bg-muted/20 backdrop-blur-sm"
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.2 }}
         >
           <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
-            {navLinks.map((link) => (
-              link.path.startsWith('http') ? (
+            {navLinks.map((link) =>
+              link.path.startsWith("http") ? (
                 <a
                   key={link.path}
                   href={link.path}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-base py-2 font-medium transition-colors hover:text-primary text-foreground/80"
+                  className="text-sm transition-colors hover:text-primary text-foreground/80"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {link.label}
@@ -152,9 +152,9 @@ const Header = () => {
                   key={link.path}
                   to={link.path}
                   className={cn(
-                    "text-base py-2 font-medium transition-colors hover:text-primary",
+                    "text-sm transition-colors hover:text-primary",
                     location.pathname === link.path
-                      ? "text-primary"
+                      ? "text-primary font-medium"
                       : "text-foreground/80"
                   )}
                   onClick={() => setMobileMenuOpen(false)}
@@ -162,19 +162,20 @@ const Header = () => {
                   {link.label}
                 </Link>
               )
-            ))}
-            <form onSubmit={handleSubscribe} className="flex items-center pt-4">
-              <Input
-                type="email"
-                placeholder="Join newsletter"
-                className="bg-background/50 border-foreground/20"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <Button type="submit" variant="secondary" className="ml-2">
-                Join
+            )}
+            <div>
+              <Button
+                onClick={() => {
+                  scrollToNewsletter();
+                  setMobileMenuOpen(false);
+                }}
+                variant="outline"
+                size="sm"
+                className="font-light rounded-full text"
+              >
+                Follow my journey
               </Button>
-            </form>
+            </div>
           </div>
         </motion.div>
       )}

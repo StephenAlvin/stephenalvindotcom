@@ -95,7 +95,7 @@ const HeroSection = () => {
               <img
                 src="/hero-image.avif"
                 alt="Stephen Alvin"
-                className="object-cover w-full h-full scale-150 md:scale-100"
+                className="object-cover w-full h-full scale-150  md:scale-100"
               />
             </motion.div>
           </div>

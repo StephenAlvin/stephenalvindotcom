@@ -10,7 +10,7 @@ const Footer = () => {
         
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
           <div className="mb-6 md:mb-0">
-            <p className="font-inter text-xl text-foreground">Stephen Alvin</p>
+            <p className="font-inter text-xl text-foreground">stephenalvin</p>
           </div>
           
           <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8">
@@ -26,7 +26,7 @@ const Footer = () => {
               </Link>
             </div>
             
-            <div className="flex space-x-4 md:ml-8">
+            <div className="flex space-x-4 md:ml-8 pt-3">
               <a href="mailto:stephenalvin0912@gmail.com" className="text-foreground/80 hover:text-primary transition-colors">
                 <Mail size={20} />
               </a>
