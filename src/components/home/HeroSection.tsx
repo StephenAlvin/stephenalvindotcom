@@ -93,7 +93,7 @@ const HeroSection = () => {
               }}
             >
               <img
-                src="/src/assets/hero-image.avif"
+                src="/src/assets/hero-image.webp"
                 alt="Stephen Alvin"
                 className="object-cover w-full h-full scale-150 md:scale-100"
               />
