@@ -20,8 +20,19 @@ const NewsletterSection = () => {
     
     if (!email) return;
     
+    const webhookUrl = import.meta.env.VITE_DISCORD_WEBHOOK_URL;
+    
+    if (!webhookUrl) {
+      toast({
+        title: "Configuration error",
+        description: "Newsletter service is not properly configured.",
+        variant: "destructive",
+      });
+      return;
+    }
+    
     try {
-      const response = await fetch('https://discord.com/api/webhooks/1385930942454960259/gBlO20ciDen7k9bCaDnNIdgfuZr4WmjzncHy-9WrxhvyGKeb5aohYcHaAGlVFdGAf7xr', {
+      const response = await fetch(webhookUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
