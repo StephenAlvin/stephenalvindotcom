@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
 import { MailIcon } from 'lucide-react';
+import { neon } from '@netlify/neon';
 
 const NewsletterSection = () => {
   const [email, setEmail] = useState('');
@@ -20,9 +21,9 @@ const NewsletterSection = () => {
     
     if (!email) return;
     
-    const webhookUrl = import.meta.env.VITE_DISCORD_WEBHOOK_URL;
+    const databaseUrl = import.meta.env.VITE_NETLIFY_DATABASE_URL;
     
-    if (!webhookUrl) {
+    if (!databaseUrl) {
       toast({
         title: "Configuration error",
         description: "Newsletter service is not properly configured.",
@@ -32,26 +33,24 @@ const NewsletterSection = () => {
     }
     
     try {
-      const response = await fetch(webhookUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          content: `${email}`,
-        }),
-      });
+      const sql = neon(databaseUrl);
+      
+      // Insert the email subscription into the database
+      // You may need to adjust the table name and columns based on your database schema
+      await sql`
+        INSERT INTO newsletter_subscriptions (email, subscribed_at, status)
+        VALUES (${email}, NOW(), 'active')
+        ON CONFLICT (email) 
+        DO UPDATE SET subscribed_at = NOW(), status = 'active'
+      `;
 
-      if (response.ok) {
-        toast({
-          title: "Thanks for subscribing!",
-          description: "You'll receive updates in your inbox.",
-        });
-        setEmail('');
-      } else {
-        throw new Error('Failed to subscribe');
-      }
+      toast({
+        title: "Thanks for subscribing!",
+        description: "You'll receive updates in your inbox.",
+      });
+      setEmail('');
     } catch (error) {
+      console.error('Newsletter subscription error:', error);
       toast({
         title: "Subscription failed",
         description: "Please try again later.",
