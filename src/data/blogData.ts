@@ -12,6 +12,52 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: 2,
+    slug: "life-after-firejet",
+    title: "Life After FireJet",
+    excerpt: "What's next for me?",
+    date: "23 June, 2025",
+    readTime: 4,
+    coverImage: "/whats-next.png",
+    content: `
+
+It's been a month since I stopped working on FireJet full-time.
+
+(for context FireJet was a B2C SAAS that I worked on for 3 years but didn't work out as well as I intended, you can see the full story [here](/blogs/three-years-ten-pivots))
+
+I thought I'd feel more relieved. In some ways I do—there's more space in my head, fewer things on fire. But I also feel a bit aimless.
+
+Right now I'm doing a small freelance gig, about 6 hours a week. It pays decently, and with the continued revenue still coming in from FireJet, I'm not exactly struggling. Which sounds like a good thing.
+
+But I've come to realise that just _getting by_ is dangerous.
+
+## The comfort trap
+
+The problem isn't that I'm burnt out. It's that I'm _comfortable_. Too comfortable.
+
+Some days I find myself taking too long a break. I'll blink and half the day's gone. Other days I try to build small tools—I made iamlockedin.com recently and somehow it made it to the front page of Hacker News. Now there are around 20 people using it every day, which is kind of wild.
+
+That felt good. Like I was back in the game, even if just for a moment.
+
+But then the next morning, I went back to doing… nothing.
+
+## Considering the options
+
+I've thought about a few paths. Starting a faceless social channel. Applying to programs like Iterative (their deadline for the next program is end of week). Going all-in on indie hacking—maybe launching more tools and seeing where that goes. What about just reading a bunch of books to upskill my business and marketing skills? Or maybe just getting a job as a PM somewhere and taking a year to breathe and figure things out.
+
+I don't know. I'm in between things.
+
+There's a part of me that misses the intensity of building FireJet. Even if it was hard, at least I knew what I was doing every day. Now I'm floating a bit.
+
+## Being kind to myself
+
+But I'm also trying to be kind to myself. Maybe this break is something I need. Maybe I don't need to have it all figured out right now.
+
+We'll see.
+    `,
+    tags: ["Personal Update", "Self-reflection", "Career"],
+  },
+  {
     id: 1,
     slug: "three-years-ten-pivots",
     title: "3 years, 10 pivots, and a final blow from Figma",

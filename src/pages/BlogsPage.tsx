@@ -1,4 +1,5 @@
 // import { useState } from 'react';
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -6,43 +7,11 @@ import { Link } from 'react-router-dom';
 import { blogPosts } from '@/data/blogData';
 
 const BlogsPage = () => {
-  // const [searchTerm, setSearchTerm] = useState('');
-  // const [filteredPosts, setFilteredPosts] = useState<BlogPost[]>(blogPosts);
-  // const [selectedTag, setSelectedTag] = useState<string | null>(null);
-
-  // Get unique tags
-  // const allTags = Array.from(
-  //   new Set(blogPosts.flatMap((post) => post.tags))
-  // ).sort();
-
-  // useEffect(() => {
-  //   let filtered = blogPosts;
-    
-  //   // Filter by search term
-  //   if (searchTerm) {
-  //     const term = searchTerm.toLowerCase();
-  //     filtered = filtered.filter(
-  //       (post) =>
-  //         post.title.toLowerCase().includes(term) ||
-  //         post.excerpt.toLowerCase().includes(term) ||
-  //         post.tags.some((tag) => tag.toLowerCase().includes(term))
-  //     );
-  //   }
-    
-  //   // Filter by selected tag
-  //   if (selectedTag) {
-  //     filtered = filtered.filter((post) =>
-  //       post.tags.includes(selectedTag)
-  //     );
-  //   }
-    
-  //   setFilteredPosts(filtered);
-  // }, [searchTerm, selectedTag]);
-
-  // const handleTagClick = (tag: string) => {
-  //   setSelectedTag(selectedTag === tag ? null : tag);
-  // };
-
+  useEffect(() => {
+    // Set page title for blogs page
+    document.title = 'My Stories | Stephen Alvin';
+  }, []);
+  
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -56,33 +25,6 @@ const BlogsPage = () => {
         <p className="text-xl font-light text-foreground/70 mb-8 w-full">
           Thoughts, lessons, and insights from my journey in design, development, and entrepreneurship.
         </p>
-        
-        {/* Search and filters */}
-        {/* <div className="mb-12">
-          <div className="relative mb-6">
-            <Search className="absolute left-3 top-3 h-5 w-5 text-foreground/50" />
-            <Input
-              type="text"
-              placeholder="Search articles..."
-              className="pl-10 bg-background border-foreground/20"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
-          </div>
-          
-          <div className="flex flex-wrap gap-2">
-            {allTags.map((tag) => (
-              <Badge 
-                key={tag}
-                variant={selectedTag === tag ? "default" : "outline"}
-                className="cursor-pointer"
-                onClick={() => handleTagClick(tag)}
-              >
-                {tag}
-              </Badge>
-            ))}
-          </div>
-        </div> */}
         
         {/* Blog grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

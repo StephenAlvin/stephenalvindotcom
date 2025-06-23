@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import HeroSection from '@/components/home/HeroSection';
 import ExperienceSection from '@/components/home/ExperienceSection';
@@ -6,6 +7,10 @@ import BlogPreviewSection from '@/components/home/BlogPreviewSection';
 import NewsletterSection from '@/components/home/NewsletterSection';
 
 const HomePage = () => {
+  useEffect(() => {
+    // Reset page title to default when on home page
+    document.title = 'Stephen Alvin';
+  }, []);
 
   return (
     <motion.div
