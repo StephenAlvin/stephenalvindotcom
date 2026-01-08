@@ -10,14 +10,19 @@ interface ExperienceItem {
 
 const experiences: ExperienceItem[] = [
   {
-    title: "Co-Founder, 🔥FireJet",
-    period: "2022 - 2025",
-    description: "80k downloads. Peak 100k ARR. B2C SAAS helping devs save time converting Figma to code. "
+    title: "Freelance Hiking Guide",
+    period: "2025 - Present",
+    description: "Guiding people to hidden trails in Singapore"
   },
   {
     title: "Freelance Software Consultancy",
     period: "2021 - Present",
     description: "Building custom software solutions for startups"
+  },
+  {
+    title: "Co-Founder, FireJet",
+    period: "2022 - Present",
+    description: "80k downloads. Peak 100k ARR. B2C SAAS helping devs save time converting Figma to code. "
   },
   {
     title: "Singapore University of Technology and Design",

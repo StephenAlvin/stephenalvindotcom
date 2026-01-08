@@ -32,20 +32,20 @@ const projects: Project[] = [
     startYear: 2025,
   },
   {
-    title: "replyfirst.co",
-    description: "AI-powered customer service solution",
-    status: "Live",
-    badgeColor: "bg-green-500/10 text-green-600 border-green-500/20",
-    liveUrl: "https://replyfirst.co",
-    startYear: 2025,
-  },
-  {
     title: "firejet.io",
     description: "Convert Figma designs into code",
     status: "Live",
     badgeColor: "bg-green-500/10 text-green-600 border-green-500/20",
     liveUrl: "https://firejet.io",
     startYear: 2022,
+  },
+  {
+    title: "replyfirst.co",
+    description: "AI-powered customer service solution",
+    status: "Legacy",
+    badgeColor: "bg-amber-500/10 text-amber-600 border-amber-500/20",
+    liveUrl: "https://replyfirst.co",
+    startYear: 2025,
   },
   {
     title: "ezbackend.io",
