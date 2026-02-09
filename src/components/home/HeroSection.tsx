@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 
 const HeroSection = () => {
   return (
@@ -34,6 +34,13 @@ const HeroSection = () => {
                   onClick={() => window.open('https://www.linkedin.com/in/stephen-alvin', '_blank')}
                 >
                   <Linkedin className="w-5 h-5" />
+                </Button>
+                <Button 
+                  size="icon" 
+                  className="rounded-full"
+                  onClick={() => window.open('https://github.com/StephenAlvin', '_blank')}
+                >
+                  <Github className="w-5 h-5" />
                 </Button>
                 <Button 
                   size="icon" 
